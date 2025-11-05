@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: expense-tracker-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: ENV
+        value: development
+      - key: PORT
+        value: 10000
+      - key: BACKEND_BASE_PATH
+        value: /api
+      - key: CORS_ORIGINS
+        value: https://render-backend-placeholder.onrender.com
